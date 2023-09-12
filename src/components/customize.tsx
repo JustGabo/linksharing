@@ -1,68 +1,16 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 import { Link } from "../components/link";
 import { Mock } from "../components/mock";
+import { LinksContext } from "../context/links";
 
 export interface Link {
-    id: string;
-    plataform: string;
-    link: string
+  id: string;
+  plataform: string;
+  link: string;
 }
 
 export function Customize() {
-  const [links, setLinks] = useState([
-    {
-      id: crypto.randomUUID(),
-      plataform: "",
-      link: "",
-    },
-  ]);
-
-  const handleCreateNewLink = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const newLink = {
-      id: crypto.randomUUID(),
-      plataform: "",
-      link: "",
-    };
-    setLinks([...links, newLink]);
-  };
-
-  const handleRemoveLink = (id: string) => {
-    const newLinks = links.filter((link) => link.id !== id);
-    setLinks(newLinks);
-  };
-
-  const settingPlataform = (plataform: string, id: string) => {
-    setLinks((prev) => {
-      const newArr = prev.map((link) => {
-        if (link.id === id) {
-          link.plataform = plataform;
-        }
-        return link;
-      });
-      setLinks(newArr);
-      return newArr;
-    });
-  };
-
-  const settingLink = (incommingLink: string, id: string) => {
-    setLinks((prev) => {
-      const newArr = prev.map((link) => {
-        if (link.id == id) {
-          link.link = incommingLink;
-        }
-
-        return link;
-      });
-      setLinks(newArr);
-      return newArr;
-    });
-  };
-
-  useEffect(() => {
-    console.log(links);
-  }, [links]);
-
+  const { links, createNewLink } = useContext(LinksContext);
 
   return (
     <div className=" w-[95%] m-auto flex items-center justify-between relative gap-7 mt-10">
@@ -76,7 +24,7 @@ export function Customize() {
           </p>
 
           <button
-            onClick={(e) => handleCreateNewLink(e)}
+            onClick={(e) => createNewLink(e)}
             className="w-full text-purple-500 text-sm mt-10 font-semibold h-[40px] border border-purple-400 rounded-md"
           >
             + Add new link
@@ -84,20 +32,12 @@ export function Customize() {
         </div>
         <main className="flex flex-col gap-4 overflow-y-auto ">
           {links.map((link, i) => (
-            <Link
-              setPlataform={settingPlataform}
-              setlink={settingLink}
-              removeLink={handleRemoveLink}
-              key={link.id}
-              id={link.id}
-              index={i}
-            />
+            <Link key={link.id} id={link.id} index={i} />
           ))}
-
         </main>
-        
+
         <div className="">
-        <button
+          <button
             onClick={() => {
               console.log(links);
             }}
@@ -106,7 +46,6 @@ export function Customize() {
             Save
           </button>
         </div>
-
       </div>
     </div>
   );

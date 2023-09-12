@@ -1,41 +1,40 @@
 import { Github, Linkedin, Instagram, Youtube } from "lucide-react";
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
+import { LinksContext } from "../context/links";
 
 interface Props {
   id: string;
-  removeLink: (id: string) => void;
-  setPlataform: (plataform: string, id: string) => void;
-  setlink: (link: string, id: string) => void;
-
   index: number;
 }
 
-type Icon = "Youtube" | "Linkedin" | "Github" | "Instagram" | "none";
+type Plataform = "Youtube" | "Linkedin" | "Github" | "Instagram" | "none";
 
-export function Link({ id, removeLink, index, setPlataform, setlink }: Props) {
-  const selectedIcon: Record<Icon, JSX.Element | null> = {
-    none: null,
-    Youtube: <Youtube className="w-5 h-5 text-red-500" />,
-    Linkedin: <Linkedin className="w-5 h-5 text-blue-500" />,
-    Github: <Github className="w-5 h-5 text-gray-500" />,
-    Instagram: <Instagram className="w-5 h-5 text-purple-400" />,
-  };
+const selectedPlataform: Record<Plataform, JSX.Element | null> = {
+  none: null,
+  Youtube: <Youtube className="w-5 h-5 text-red-500" />,
+  Linkedin: <Linkedin className="w-5 h-5 text-blue-500" />,
+  Github: <Github className="w-5 h-5 text-gray-500" />,
+  Instagram: <Instagram className="w-5 h-5 text-purple-400" />,
+};
 
-  const [selectedPlataform, setselectedPlataform] = useState<Icon>("none");
-  const [link, setLink] = useState<string>("");
+export function Link({ id, index }: Props) {
+  const { links, removeLink, settingLink, settingPlataform } =
+    useContext(LinksContext);
+
+  const link = links.find((link) => link.id === id)!;
 
   const showingChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value as Icon;
-    setselectedPlataform(value);
+    const value = e.target.value as Plataform;
+    settingPlataform(value, link.id);
   };
 
-  const handleLink = (e: React.ChangeEvent<HTMLInputElement>)=>{
-    setLink(e.target.value)
-  }
+  const handleLink = (e: React.ChangeEvent<HTMLInputElement>) => {
+    settingLink(e.target.value, link.id);
+  };
 
-  useEffect(()=>{
-    console.log(selectedPlataform)
-  },[selectedPlataform])
+  useEffect(() => {
+    console.log(link.plataform);
+  }, [link.plataform]);
 
   return (
     <div className="flex flex-col gap-5 p-4 border rounded-md bg-gray-50">
@@ -53,13 +52,8 @@ export function Link({ id, removeLink, index, setPlataform, setlink }: Props) {
           </label>
           <div className="relative">
             <select
-              onChange={(e)=>{
-                showingChange(e)
-                setPlataform(selectedPlataform, id)
-              }}
+              onChange={(e) => showingChange(e)}
               className="border h-[40px] w-full text-sm font-medium rounded-md outline-none px-8"
-              name=""
-              id=""
             >
               <option value="none">Select a plataform</option>
               <option value="Youtube">Youtube</option>
@@ -68,7 +62,7 @@ export function Link({ id, removeLink, index, setPlataform, setlink }: Props) {
               <option value="Instagram">Instagram</option>
             </select>
             <div className="absolute top-[10px] left-2">
-              {selectedIcon[selectedPlataform]}
+              {selectedPlataform[link.plataform as Plataform]}
             </div>
           </div>
 
@@ -76,12 +70,7 @@ export function Link({ id, removeLink, index, setPlataform, setlink }: Props) {
             Link
           </label>
           <input
-          onChange={
-            (e)=>{
-                handleLink(e)
-                setlink(link, id)
-            }
-          }
+            onChange={(e) => handleLink(e)}
             className="border  h-[40px] rounded-md outline-none px-2 text-sm placeholder:text-sm"
             placeholder="Write your link"
             type="text"
