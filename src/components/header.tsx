@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Customize } from "../components/customize";
 import { Personal } from "../components/personal";
+import { Mock } from "../components/mock";
 
 export function Header() {
   const [isActive, setIsActive] = useState("link");
 
   return (
     <div>
-      <div className="w-[95%] m-auto flex justify-between items-center">
+      <div className="w-[95%] mb-10 m-auto flex justify-between items-center">
         <div>
           <h1 className="text-3xl font-bold">Link</h1>
         </div>
@@ -44,7 +45,12 @@ export function Header() {
           Preview
         </button>
       </div>
-      <main>{isActive == "link" ? <Customize /> : <Personal />}</main>
+      <div className="grid grid-cols-[40%,1fr] items-center h-[calc(100vh-200px)] w-[95%] m-auto gap-6">
+        <Mock />
+        <div className="">
+          {isActive == "link" ? <Customize /> : <Personal />}
+        </div>
+      </div>
     </div>
   );
 }
