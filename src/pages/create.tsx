@@ -2,15 +2,18 @@ import { useState } from "react";
 import { Customize } from "../components/customize";
 import { Personal } from "../components/personal";
 import { Mock } from "../components/mock";
+import { Link } from "react-router-dom";
 
-export function Header() {
+export function Create() {
   const [isActive, setIsActive] = useState("link");
 
   return (
-    <div>
+    <div className="mt-8">
       <div className="w-[95%] mb-10 m-auto flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold">Link</h1>
+          <Link to={'/'}>
+            <h1 className="text-3xl font-bold">Link</h1>
+          </Link>
         </div>
 
         <div className="flex items-center gap-3 ml-9">
@@ -41,9 +44,12 @@ export function Header() {
             Profile Details
           </button>
         </div>
-        <button className="w-[120px] text-purple-500 text-sm font-semibold h-[40px] border-[1.6px] border-purple-400 rounded-md">
+        <Link
+          to={"/preview"}
+          className="w-[120px] flex items-center justify-center text-purple-500 text-sm font-semibold h-[40px] border-[1.6px] border-purple-400 rounded-md"
+        >
           Preview
-        </button>
+        </Link>
       </div>
       <div className="grid grid-cols-[40%,1fr] items-center h-[calc(100vh-200px)] w-[95%] m-auto gap-6">
         <Mock />

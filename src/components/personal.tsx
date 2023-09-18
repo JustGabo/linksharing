@@ -4,13 +4,25 @@ import {useDropzone} from 'react-dropzone'
 
 export function Personal() {
 
-    const onDrop = (files: File[])=>{
-        console.log(files[0]?.name)
+    const onDrop = (files: File[] | undefined)=>{
+      if(files){
+        const i = files[0]
+        if(i){
+          convertImage(i)
+        }
+      }
+    }
+
+    const convertImage = (file: File)=>{
+      const image = URL.createObjectURL(file)
+      setImage(image)
+      return image
     }
 
     const {setprofileDetails, profileDetails} = useContext(ProfileContext)
     const {getInputProps, getRootProps, isDragActive} = useDropzone({onDrop})
 
+    const {setImage} = useContext(ProfileContext)
 
 
   return (

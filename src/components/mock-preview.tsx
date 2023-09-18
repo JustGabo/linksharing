@@ -28,11 +28,11 @@ export function Mock() {
   const {image}= useContext(ProfileContext)
 
   return (
-    <div className="grid h-[550px] overflow-y-auto border  rounded-lg place-items-center">
-      <div className="border border-gray-400 flex flex-col items-center p-4  rounded-2xl h-[90%] w-[45%] m-auto">
+    <div className=" h-[550px] overflow-y-auto  ">
+      <div className=" flex flex-col shadow-xl border drop-shadow-xl border-gray-400  items-center p-4  rounded-2xl h-[90%] m-auto">
         <div className="flex flex-col items-center gap-3 h-[40%]">
           
-          {image ? <img src={image} className="bg-gray-200 w-[100px] object-cover aspect-square rounded-full"/> : <User2 strokeWidth={.2} color="#888" className="w-[100px] border-gray-500 border-[1px] rounded-full h-[100px] text-black"/>}
+          {image ? <img src={image} className="bg-gray-200 w-[100px] object-cover aspect-square rounded-full"/> : <User2 color="#888" strokeWidth={.2} className="w-[100px] border-gray-500 border-[1px] rounded-full h-[100px] text-black"/>}
           {profileDetails.firstName ? (
             <p className="text-sm font-medium">{profileDetails.firstName} {profileDetails.lastName}</p> 
           ) : (
