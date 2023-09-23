@@ -26,13 +26,13 @@ export function Personal() {
 
 
   return (
-    <div className="flex flex-col gap-5 p-10 border rounded-md" >
+    <div className="flex flex-col gap-5 p-10 border border-gray-400 rounded-lg" >
       <div className="flex flex-col gap-3">
         <h2 className="text-3xl font-bold">Profile Details</h2>
         <p className="text-xs font-medium">Add your details to create a personal touch to your profile</p>
       </div>
-      <div className='flex items-center justify-center w-[100%] h-[200px] bg-gray-300 rounded-lg' {...getRootProps()}>
-        <input {...getInputProps()} className="w-[100px] h-[200px] rounded-md bg-gray-200"/>
+      <div className='flex items-center justify-center w-[100%] h-[200px] bg-purple-100 rounded-lg' {...getRootProps()}>
+        <input {...getInputProps()} className="w-[100px] h-[200px] rounded-lg bg-gray-200"/>
         {
             isDragActive?
             <p className='text-xs'>Drag your image here</p>:
@@ -52,7 +52,7 @@ export function Personal() {
             </div>
             <div className="flex items-center justify-between">
                 <label className="text-sm" htmlFor="email">Email</label>
-                <input name='email' onChange={(e)=>setprofileDetails(e)} className="px-2 py-3 w-[70%] text-xs border-2 rounded-md outline-none" value={profileDetails.email} type="text" id="email" placeholder="Write your Email"/>
+                <input name='email' onChange={(e)=>setprofileDetails(e)} className="px-2 py-3 w-[70%] text-xs border-2 rounded-lg outline-none" value={profileDetails.email} type="text" id="email" placeholder="Write your Email"/>
             </div>
         </form>
       </div>

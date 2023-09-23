@@ -13,7 +13,7 @@ export function Customize() {
 
   return (
     <div className=" h-[550px] m-auto flex items-center justify-between relative">
-      <div className="flex flex-col flex-1 h-[100%]  p-10 border rounded-lg">
+      <div className="flex flex-col flex-1 h-[100%]  p-10 border border-gray-400 rounded-lg">
         <div className="flex flex-col gap-2 mb-10">
           <h2 className="text-3xl font-bold">Customize your links</h2>
           <p className="text-xs font-medium">
@@ -23,7 +23,7 @@ export function Customize() {
 
           <button
             onClick={(e) => createNewLink(e)}
-            className="w-full text-purple-500 text-sm mt-10 font-semibold h-[40px] border border-purple-400 rounded-md"
+            className="w-full text-purple-500 text-sm mt-10 font-semibold h-[40px] border border-purple-400 rounded-lg"
           >
             + Add new link
           </button>
@@ -40,7 +40,7 @@ export function Customize() {
               onClick={() => {
                 console.log(links);
               }}
-              className="h-[40px] w-full border-2 mt-5 rounded-md text-sm font-medium"
+              className="h-[40px] w-full border-2 mt-5 rounded-lg text-sm font-medium"
             >
               Save
             </button>

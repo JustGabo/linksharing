@@ -1,5 +1,5 @@
 import { Github, Linkedin, Instagram, Youtube } from "lucide-react";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { LinksContext } from "../context/links";
 
 interface Props {
@@ -32,15 +32,11 @@ export function Link({ id, index }: Props) {
     settingLink(e.target.value, link.id);
   };
 
-  useEffect(() => {
-    console.log(link.plataform);
-  }, [link.plataform]);
-
   return (
-    <div className="flex flex-col gap-5 p-4 border rounded-md bg-gray-50">
+    <div className="flex flex-col gap-5 p-4 border rounded-lg bg-gray-50">
       <header className="flex items-center justify-between">
         <p className="text-sm font-semibold">Link # {index + 1}</p>
-        <button onClick={() => removeLink(id)} className="text-sm font-medium">
+        <button onClick={() => removeLink(id)} className="text-xs font-medium">
           Remove
         </button>
       </header>
@@ -53,7 +49,7 @@ export function Link({ id, index }: Props) {
           <div className="relative">
             <select
               onChange={(e) => showingChange(e)}
-              className="border h-[40px] w-full text-sm font-medium rounded-md outline-none px-8"
+              className="border h-[40px] w-full text-sm font-medium rounded-lg outline-none px-8"
             >
               <option value="none">Select a plataform</option>
               <option value="Youtube">Youtube</option>
@@ -71,7 +67,7 @@ export function Link({ id, index }: Props) {
           </label>
           <input
             onChange={(e) => handleLink(e)}
-            className="border  h-[40px] rounded-md outline-none px-2 text-sm placeholder:text-sm"
+            className="border  h-[40px] rounded-lg outline-none px-2 text-sm placeholder:text-sm"
             placeholder="Write your link"
             type="text"
           />
