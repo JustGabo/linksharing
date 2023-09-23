@@ -8,7 +8,7 @@ import PreviewImage from '../images/image4.png'
 export const Landing = () => {
   return (
     <div className="mt-8 w-[95%] m-auto">
-      <header className="flex items-center justify-between mb-4">
+      <header className="flex items-center justify-between mb-36 md:mb-4">
         <div>
           <h1 className="text-2xl font-bold md:text-3xl">Link</h1>
         </div>
@@ -31,14 +31,14 @@ export const Landing = () => {
 
       
 
-      <main className="grid items-center grid-cols-[55%,1fr]">
+      <main className="grid items-center md:grid-cols-[55%,1fr]">
         <div className="flex flex-col gap-5">
-          <h2 className="text-5xl  md:text-7xl font-semibold text-purple-500 w-[100%] md:w-[100%]">
+          <h2 className="text-5xl  md:text-7xl font-semibold text-purple-500 w-[85%] md:w-[100%]">
             Create your own <span className="text-black">linktree</span>
           </h2>
           <p className="md:text-sm text-xs text-black w-[90%] md:w-[90%]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vel in eligendi voluptatem quaerat accusamus pariatur reprehenderit dicta, nihil vitae dignissimos odit quia eos perspiciatis id molestiae? Iusto, quo officia.</p>
         </div>
-        <div className="grid gap-2 p-2 ">
+        <div className="hidden gap-2 p-2 md:grid ">
         <img className="w-[94%] ml-auto" src={CustomizeImage} alt="" />
         <img className="w-[94%]" src={PreviewImage} alt="" />
         {/* <img className="w-[60%]" src={ProfileImage} alt="" /> */}
