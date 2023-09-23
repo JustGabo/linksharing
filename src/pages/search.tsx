@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Search as SearchIcon } from "lucide-react";
 import { useState } from "react";
+import {footer as Footer} from '../components/footer'
 
 export const Search = () => {
   const [isActive, setIsActive] = useState(false);
@@ -33,6 +34,9 @@ export const Search = () => {
       <main>
         <h2>Search for profiles</h2>
       </main>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mock } from "../components/mock-preview";
+import {footer as Footer} from '../components/footer'
 
 export const Preview = () => {
   return (
@@ -21,6 +22,9 @@ export const Preview = () => {
           <Mock />
         </div>
       </main>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 };

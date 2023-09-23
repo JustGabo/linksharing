@@ -3,6 +3,7 @@ import { Customize } from "../components/customize";
 import { Personal } from "../components/personal";
 import { Mock } from "../components/mock";
 import { Link } from "react-router-dom";
+import {footer as Footer} from '../components/footer'
 
 export function Create() {
   const [isActive, setIsActive] = useState("link");
@@ -58,6 +59,9 @@ export function Create() {
           {isActive == "link" ? <Customize /> : <Personal />}
         </div>
       </div>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 }
