@@ -29,10 +29,10 @@ export function Mock() {
 
   return (
     <div className="grid h-[450px] md:h-[550px] overflow-y-auto border border-gray-400   rounded-lg place-items-center">
-      <div className="border border-gray-500 flex flex-col items-center p-4  rounded-2xl h-[90%] w-[45%] m-auto">
+      <div className="border border-gray-500 flex flex-col items-center p-4  rounded-2xl h-[75%] lg:h-[90%]  w-[45%] m-auto">
         <div className="flex flex-col items-center gap-1.5 md:gap-3 h-[40%]">
           
-          {image ? <img src={image} className="bg-gray-200 w-[50%] md:w-[50%] object-cover aspect-square rounded-full"/> : <User2 strokeWidth={.2} color="#888" className="md:w-[75%] w-[55%]  border-gray-500 border-[1px] rounded-full h-[40%] md:h-[50%] text-black"/>}
+          {image ? <img src={image} className="bg-gray-200 w-[50%] md:w-[50%] object-cover aspect-square rounded-full"/> : <User2 strokeWidth={.2} color="#888" className="md:w-[70%] w-[50%]  border-gray-500 border-[1px] rounded-full h-[40%] md:h-[50%] text-black"/>}
           {profileDetails.firstName ? (
             <p className="text-xs font-medium md:text-sm">{profileDetails.firstName} {profileDetails.lastName}</p> 
           ) : (
