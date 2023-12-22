@@ -4,7 +4,7 @@ import {footer as Footer} from '../components/footer'
 
 export const Preview = () => {
   return (
-    <div className="pt-8 w-[95%] m-auto">
+    <div className="pt-8 pb-4 w-[95%] m-auto">
       <header className="flex items-center justify-between p-4 mb-8 border rounded-lg shadow-lg">
         <Link
           to={"/create"}

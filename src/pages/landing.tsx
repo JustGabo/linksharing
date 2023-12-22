@@ -7,7 +7,7 @@ import PreviewImage from '../images/image4.png'
 
 export const Landing = () => {
   return (
-    <div className="mt-8 w-[95%] m-auto">
+    <div className="pt-8 pb-16 w-[95%] m-auto">
       <header className="flex items-center justify-between mb-36 md:mb-4">
         <div>
           <h1 className="text-2xl font-bold md:text-3xl">Link</h1>

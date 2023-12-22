@@ -9,7 +9,7 @@ export function Create() {
   const [isActive, setIsActive] = useState("link");
 
   return (
-    <div className="mt-8">
+    <div className="pt-8 pb-16">
       <div className="w-[95%] mb-16 lg:mb-10 m-auto flex justify-between relative  items-center">
         <div>
           <Link to={'/'}>
@@ -53,13 +53,13 @@ export function Create() {
           Preview
         </Link>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-[40%,1fr] items-center h-[calc(100vh-200px)] w-[95%] m-auto gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-[40%,1fr] items-center w-[95%] m-auto gap-6">
         <Mock />
         <div className="">
           {isActive == "link" ? <Customize /> : <Personal />}
         </div>
       </div>
-      <footer>
+      <footer className="">
         <Footer/>
       </footer>
     </div>
